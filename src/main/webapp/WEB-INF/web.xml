@@ -6,6 +6,19 @@
 
     <display-name>SpringMVCDemo Web Application</display-name>
 
+    <!-- Spring配置 -->
+    <!-- 配置Spring配置文件路径,好让ContextLoaderListener对其加载与解析-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:applicationContext.xml
+        </param-value>
+    </context-param>
+    <!-- 配置Spring上下文监听器,它的作用就是在启动WEB容器时,就会自动装在我们applicationContext.xml配置-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
