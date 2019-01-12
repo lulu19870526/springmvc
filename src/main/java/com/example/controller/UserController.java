@@ -22,14 +22,19 @@ public class UserController {
     @RequestMapping("register")
     @ResponseBody
     public String register(String userName,String password,int age){
-         System.out.println("register()中，userName="+userName+":password="+password+";age="+age);
-         User user = new User();
-         user.setUserName(userName);
-         user.setPassword(password);
-         user.setAge(age);
+        try {
+            System.out.println("register()中，userName="+userName+":password="+password+";age="+age);
+            User user = new User();
+            user.setUserName(userName);
+            user.setPassword(password);
+            user.setAge(age);
 
-         userService.registerUser(user);
-
-         return "success";
+            int userId = userService.registerUser(user);
+            System.out.println("register()中，userId="+userId+";userName="+userName+":password="+password+";age="+age);
+            return userId+"";
+        } catch (Exception e) {
+            System.out.println("register()中出现异常，userName="+userName+":password="+password+";age="+age);
+        }
+        return "fail";
     }
 }

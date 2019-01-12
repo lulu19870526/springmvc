@@ -9,7 +9,9 @@
         select * from user where username=#{username} and password=#{password}
     </select>
     <!-- 增加用户 -->
-    <insert id="addUser" parameterType="com.example.model.User">
+    <!--useGeneratedKeys和keyProperty自动生成主键，并将生成的值设置到keyProperty对应的属性上-->
+    <insert id="addUser" parameterType="com.example.model.User"
+            useGeneratedKeys="true" keyProperty="id">
         insert into t_user(username,password,age) values(#{userName},#{password},#{age})
     </insert>
     <!-- 根据用户名查询 -->

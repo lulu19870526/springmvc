@@ -9,7 +9,7 @@ public interface UserMapper {
     User findByUserNameAndPassword(@Param("username")String username, @Param("password")String password);
 
     //增加用户
-    void addUser(User user);
+    int addUser(User user);
 
     //根据用户名查询
     User findByUserName(String username);

@@ -25,8 +25,8 @@ var registerVue =new Vue({
                 url: "/user/register",
                 data:{userName:registerVue.username,password:registerVue.password,age:registerVue.age},
                 success: function(res){
-                   if(res == "success")
-                     alert("注册用户成功");
+                   if(res != "fail")
+                     alert("注册用户成功,且用户id是"+res);
                     else
                       alert("注册用户失败");
                 },
