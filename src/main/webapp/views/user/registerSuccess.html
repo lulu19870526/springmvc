@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>注册成功页面</title>
+
+    <meta name="description" content="User login page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+</head>
+<body class="login-layout">
+
+    <div class="center" style="margin-left:450px">
+        <h1>
+            <i class="ace-icon fa fa-leaf green"></i>
+            <span class="white" id="id-text2">用户注册的信息</span>
+        </h1>
+    </div>
+    <div class="space-6"></div>
+
+    <div class="widget-body" style="width:500px;margin-left: 33%;">
+        <div class="widget-main">
+            <div class="space-6"></div>
+            <form >
+                <div>
+                    <div class="block clearfix" style="margin-bottom:20px;">
+                                <span class="block input-icon input-icon-right">
+                                    用户id： ${id}
+                                </span>
+                    </div>
+                    <div class="block clearfix" style="margin-bottom:20px;">
+                                <span class="block input-icon input-icon-right">
+                                    用户名：${userName}
+                                </span>
+                    </div>
+
+                    <div class="block clearfix" style="margin-bottom:20px;">
+                                <span class="block input-icon input-icon-right">
+                                    密码：${password}
+                                </span>
+                    </div>
+
+                    <div class="block clearfix" style="margin-bottom:20px;">
+                                <span class="block input-icon input-icon-right">
+                                    年龄：${age}
+                                </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/vue.min.js"></script>
+</html>
