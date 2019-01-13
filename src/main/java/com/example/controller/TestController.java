@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -8,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
     
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello(Model model){
+        model.addAttribute("message","beijing welcome you");
         return "/test/hello";
     }
 }
