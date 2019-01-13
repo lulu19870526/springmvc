@@ -3,6 +3,8 @@ package com.example.dao;
 import com.example.model.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
 
     //根据用户名和密码查找。mybatis中有多个参数时，需要使用@Param注解
@@ -13,4 +15,6 @@ public interface UserMapper {
 
     //根据用户名查询
     User findByUserName(String username);
+
+    List<User> getAllUsers();
 }

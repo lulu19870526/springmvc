@@ -6,7 +6,7 @@
 
     <!-- 根据用户名和密码查询 -->
     <select id="findByUserNameAndPassword" resultType="com.example.model.User">
-        select * from user where username=#{username} and password=#{password}
+        select * from t_user where username=#{username} and password=#{password}
     </select>
     <!-- 增加用户 -->
     <!--useGeneratedKeys和keyProperty自动生成主键，并将生成的值设置到keyProperty对应的属性上-->
@@ -16,7 +16,12 @@
     </insert>
     <!-- 根据用户名查询 -->
     <select id="findByUserName" resultType="com.example.model.User">
-        select * from user where username=#{username}
+        select * from t_user where username=#{username}
+    </select>
+
+    <!--得到所有的用户-->
+    <select id="getAllUsers"  resultType="com.example.model.User">
+        select * from t_user
     </select>
 
 </mapper>

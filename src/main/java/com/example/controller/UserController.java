@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.model.User;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -68,5 +70,14 @@ public class UserController {
         model.addAttribute("age",age);
 
         return "/user/registerSuccess";
+    }
+
+    @RequestMapping("getallusers")
+    public String getAllUsers(Model model){
+        List<User> userList = userService.getAllUsers();
+        System.out.println("getAllUsers()中,userList="+ JSON.toJSONString(userList));
+        model.addAttribute("userList",userList);
+
+        return "/user/allUsers";
     }
 }
