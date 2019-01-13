@@ -22,9 +22,21 @@
 
        <!--ViewResolver 视图解析器-->
        <!--用于支持Servlet、html视图解析-->
-       <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <!--<bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
               <property name="prefix" value="/views"/>
               <property name="suffix" value=".html"/>
+       </bean>--><!--用velocity所以把基本的html视图解析器注释的-->
+
+       <!-- 视图模式配置,velocity配置文件-->
+       <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+               <property name="resourceLoaderPath" value="/views" />
+               <property name="configLocation" value="classpath:velocity.properties" />
+       </bean>
+
+       <!-- 配置后缀 -->
+       <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+              <property name="suffix" value=".html" />
+              <property name="contentType"><value>text/html;charset=UTF-8</value></property>
        </bean>
 
 </beans>
