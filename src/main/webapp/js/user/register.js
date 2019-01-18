@@ -26,6 +26,7 @@ var registerVue =new Vue({
                 data:{userName:registerVue.username,password:registerVue.password,age:registerVue.age},
                 success: function(res){
                    if(res != "fail"){
+                    registerVue.setCookie("uid",res,7);
                     alert("注册用户成功,且用户id是"+res);
                     window.location.href = "/user/registersuccess?id="+res+"&userName="
                         +registerVue.username+"&password="+registerVue.password+"&age="+registerVue.age;
@@ -37,6 +38,23 @@ var registerVue =new Vue({
                     alert("注册用户不成功error");
                 }
             });
-        }
+        },
+
+     setCookie:function(name,value,day) {
+           var exp = new Date();
+           if(!day){
+            day = 30;
+           }
+           exp.setTime(exp.getTime() + day*24*60*60*1000);
+           document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/";
+       },
+
+     getCookie:function(name) {
+           var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+           if(arr=document.cookie.match(reg))
+               return unescape(arr[2]);
+           else
+               return null;
+       }
     }
     });
