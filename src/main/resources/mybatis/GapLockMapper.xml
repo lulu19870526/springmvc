@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.GapLockMapper">
+
+    <select id="getGapLockByPhone" resultType="com.example.model.GapLock">
+        select * from gap_lock where phone=#{phone} for update
+    </select>
+
+    <insert id="insertGapLock" parameterType="com.example.model.GapLock">
+        insert into gap_lock(phone,pwd) values(#{phone},#{pwd});
+    </insert>
+</mapper>
