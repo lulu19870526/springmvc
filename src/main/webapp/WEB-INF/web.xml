@@ -15,16 +15,19 @@
         </param-value>
     </context-param>
     <!-- 配置Spring上下文监听器,它的作用就是在启动WEB容器时,就会自动装在我们applicationContext.xml配置-->
+    <!--当需要载入多个spring相关的配置文件时，首先加载ContextLoaderListener类-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!--在servlet-name中如果没有指定init-param属性，那么系统自动寻找的spring配置文件为[servlet-name]-servlet.xml。-->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <!--<servlet-mapping>指定的该servlet接管的url的行为-->
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
