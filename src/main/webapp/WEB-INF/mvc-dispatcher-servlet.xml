@@ -51,6 +51,7 @@
                      <mvc:mapping path="/user/**" />
                      <!-- 需排除拦截的地址 -->
                      <mvc:exclude-mapping path="/user/registerindex"/>
+                     <mvc:exclude-mapping path="/user/register"/>
                      <bean id="loginInterceptor" class="com.example.Interceptor.LoginInterceptor"></bean> <!--这个类就是我们自定义的Interceptor -->
               </mvc:interceptor>
               <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法  -->
